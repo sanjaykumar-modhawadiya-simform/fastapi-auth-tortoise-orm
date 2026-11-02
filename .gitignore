@@ -1,0 +1,16 @@
+# Python / Virtual Environments
+__pycache__/
+*.py[cod]
+venv/
+.env
+
+# Frontend / Node modules
+frontend/node_modules/
+node_modules/
+
+# SonarQube local analysis cache
+.scannerwork/
+
+# IDE files
+.idea/
+.vscode/
