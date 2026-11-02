@@ -1,0 +1,12 @@
+Run the below command to create vite frontend project:
+    npm create vite@5 frontend -- --template react
+
+Navigate into the folder and install the dependencies:
+    cd frontend
+    npm install
+    npm install -D tailwindcss postcss autoprefixer lucide-react axios react-router-dom
+    npx tailwindcss init -p
+
+Run the frontend:
+    cd frontend
+    npm run dev

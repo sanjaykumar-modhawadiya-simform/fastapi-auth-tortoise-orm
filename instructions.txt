@@ -1,0 +1,23 @@
+Create a virtual environment:
+    python3 -m venv venv
+
+Activate the virtual environment:
+    source venv/bin/activate
+
+Install the dependencies:
+    pip install fastapi[standard] pydantic pydantic-settings python-multipart tortoise-orm passlib[bcrypt] bcrypt pyjwt
+    pip install celery redis reportlab boto3
+    pip install pylint
+
+Run the server:
+    fastapi dev main.py
+
+Run the Frontend:
+    npm run dev
+
+Run the docker using below command:
+    sudo docker compose up -d --build (Build + Run or Start)
+    sudo docker compose up -d (Start or Build)
+
+Container Logs:
+    sudo docker logs fastapi-backend --tail 50
