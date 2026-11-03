@@ -62,3 +62,13 @@ Select the token type as User Token.
 
 Click the Generate button.
 
+After modification to Tortoise model, you can run Aerich for migration (The First-Time Setup):
+docker compose run --rm migration aerich init-db
+
+What it does: It creates the aerich.ini config, scaffolds the migrations/ directory,
+generates the initial schema migration file (_init.py), and applies it to the database.
+
+Subsequent Modifications (Later Changes):
+Generate the migration file locally: docker compose run --rm migration aerich migrate --name add_new_field
+
+Apply the migration to the database: docker compose run --rm migration aerich upgrade
