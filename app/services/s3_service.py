@@ -15,8 +15,7 @@ def upload_pdf_to_s3(pdf_buffer, filename):
 
     # Ensure bucket exists for MinIO development
     try:
-        s3_client.head_bucket(Bucket=bucket_name,
-            ExpectedBucketOwner=aws_account_id)
+        s3_client.head_bucket(Bucket=bucket_name)
     except Exception:
         s3_client.create_bucket(Bucket=bucket_name)
 
