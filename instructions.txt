@@ -21,3 +21,44 @@ Run the docker using below command:
 
 Container Logs:
     sudo docker logs fastapi-backend --tail 50
+
+First time download and start the Sonar (sonarqube (The Server)):
+docker run -d --name sonarqube -e SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true -p 9000:9000 sonarqube:latest
+
+Once downloaded by above command, if you want to start the docker again:
+docker start sonarqube
+
+If you want to remove sonar docker image:
+docker rm sonarqube
+
+Run the sonar report (sonarsource/sonar-scanner-cli (The Scanner)):
+docker run --rm \
+    --network="host" \
+    -v "$(git rev-parse --show-toplevel)":/usr/src \
+    sonarsource/sonar-scanner-cli \
+    -Dsonar.host.url=http://localhost:9000 \
+    -Dsonar.token="squ_34be2874771d74c3ff9b3b0fb0e204f25f812562" \
+    -Dsonar.projectVersion="git-push-$(git rev-parse --short HEAD)"
+
+Note: To get your token for the Docker scanner command, you need to generate a user token directly from your local SonarQube dashboard.
+
+Here are the exact steps to generate it:
+
+Open your browser and go to http://localhost:9000.
+
+Log in with your credentials (default is username admin and your updated password).
+
+Click on your Profile icon (avatar) in the top-right corner of the screen.
+
+Select My Account from the dropdown menu.
+
+Click on the Security tab at the top of the account page.
+
+Under the Generate Token section:
+
+Enter a name for your token (for example: fastapi-local-token).
+
+Select the token type as User Token.
+
+Click the Generate button.
+
