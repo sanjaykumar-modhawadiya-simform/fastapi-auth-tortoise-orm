@@ -8,6 +8,7 @@ Install the dependencies:
     pip install fastapi[standard] pydantic pydantic-settings python-multipart tortoise-orm passlib[bcrypt] bcrypt pyjwt
     pip install celery redis reportlab boto3
     pip install pylint
+    pip install reportlab requests
 
 Run the server:
     fastapi dev main.py
