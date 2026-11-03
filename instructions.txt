@@ -22,6 +22,10 @@ Run the docker using below command:
 Container Logs:
     sudo docker logs fastapi-backend --tail 50
 
+Stop all docker containers:
+docker stop $(docker ps -q) OR
+docker compose stop
+
 First time download and start the Sonar (sonarqube (The Server)):
 docker run -d --name sonarqube -e SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true -p 9000:9000 sonarqube:latest
 
